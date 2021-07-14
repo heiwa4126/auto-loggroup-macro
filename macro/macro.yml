@@ -1,0 +1,23 @@
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.8
+      CodeUri: .
+      Handler: index.handler
+
+  Macro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: AutoLogGroupMacro
+      FunctionName: !GetAtt Function.Arn
+
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    DependsOn: Function
+    Properties:
+      RetentionInDays: 7
+      LogGroupName: !Join ["/", ["/aws/lambda", !Ref Function]]

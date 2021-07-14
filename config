@@ -1,0 +1,3 @@
+# -*- mode: sh -*-
+STACK=auto-loggroup-macro
+S3=${STACK}-835ab0ce
