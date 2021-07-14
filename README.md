@@ -42,4 +42,5 @@ CloudFormation Macrosは、
 「マクロ」というよりは「フィルター」。
 
 本当にほしいのは
-`#define`みたいなやつなんだけど...
+`#define` とか
+`#include` みたいなやつなんだけど...
